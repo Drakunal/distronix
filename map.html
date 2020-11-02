@@ -15,17 +15,22 @@
 <div id="map"></div>
  
 <script>
+
+    
+    const lat=22.584171295;
+    const long=88.444839478;
+    const s=41892451
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHJha3VuYWwiLCJhIjoiY2toMGtod29pMDAwdzJybWFpemo3ZThqaSJ9.npjyjzv1OKaFGbgub0id_Q';
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
-center: [88.444839478, 22.584171295],
+center: [long, lat],
 zoom: 8
 });
 
 // create the popup
 var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-'Sensor Id:'
+`Sensor Id: ${s}`
 );
  
 // create DOM element for the marker
@@ -33,7 +38,7 @@ var el = document.createElement('div');
 el.id = 'marker';
  
 var marker = new mapboxgl.Marker()
-.setLngLat([88.444839478, 22.584171295])
+.setLngLat([long, lat])
 .setPopup(popup) 
 .addTo(map);
 
